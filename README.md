@@ -107,3 +107,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 ```
+With this we only need to run a simple command which is going to make our changes and things to the database that we selected before.
+```
+$ python manage.py makemigrations apps-name
+```
