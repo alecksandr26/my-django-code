@@ -76,4 +76,20 @@ urlpatterns = [
 <a name="models" />
 
 ## Creating Models
-To create a model is very easy you need to go to the file `app-name/models.py`, here inside in this file we are going to add our models.
+To create a model is very easy you need to go to the file `app-name/models.py`, here inside in this file we are going to add our models, models are tables where you can define what tables are you going to create and use everything from django.
+```
+from django.db import models
+
+# Create your models here.
+
+# This is how we can create a new table inside of our table
+class Question(models.Model):
+    question_text = models.charField(max_length=200)
+    pub_date = models.DateTimeField("date publish")
+
+# This is another table 
+class Choices(models.Model):
+    question = models.ForeignKey(Question, on_delete=model.CASCADE)
+    choice_text = models.CharField(max_length=200)
+    votes = models.IntergerField(default=0)
+```
