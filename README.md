@@ -137,5 +137,5 @@ Here you can interact your code and do a lot of things.
 ## Django admin
 In django has some tools to administrate our project and configurate our project from any place to be able to do that we need to create a user from the terminal, just run this command and create your user.
 ```
-$ python manage.py createuser
+$ python manage.py createsuperuser
 ```
