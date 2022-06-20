@@ -113,7 +113,9 @@ With this we only need to run a simple these commands which is going to make our
 $ python manage.py makemigrations apps-name
 $ python manage.py migrate
 ```
+
 <a name="shell" />
+
 ## Shell
 To run an interactive shell in django you only need to run this command.
 ```
