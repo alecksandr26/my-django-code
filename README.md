@@ -9,3 +9,5 @@ To run the project you need to execute this command.
 ```
 $ python app/manage.py runserver
 ```
+## Django documentation
+[Documentation](https://docs.djangoproject.com/en/4.0/)
