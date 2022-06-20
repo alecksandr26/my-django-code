@@ -1,2 +1,2 @@
-# my-django-code
+# My Django Code
 Just my django code
