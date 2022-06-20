@@ -15,6 +15,6 @@ $ python app/manage.py runserver
 ## Creating modules
 In Django you can create modules or apps to divide your code in different parts, making your project more scalable and organize so to create a new app or module just run these commands.
 ```
-$ cd app
+$ cd apps-name
 $ python manage.py startapp modules-name
 ```
