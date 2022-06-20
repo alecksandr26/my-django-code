@@ -10,6 +10,7 @@ Just my django code
 4. [Creating Models for ORM](#models)
 5. [Shell in django](#shell)
 6. [Django admin](#admin)
+7. [Views](#views)
 
 <a name="install" />
 
@@ -158,3 +159,13 @@ from .models import Question, Choice
 admin.site.register(Question, Choice)
 ```
 Now you can go to the `/admin` and see the interface to administrate the database.
+
+<a name="views" />
+
+## Creating views
+Views are just url that we can create to response requests from the users inside of it we can render html, css files to create these web applications, so for example inside of your `modules-name/views.py` we are going to add these views for example this are mine.
+```
+
+```
+
+
