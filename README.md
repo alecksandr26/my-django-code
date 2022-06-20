@@ -3,6 +3,7 @@ Just my django code
 ##### Table of Contents  
 1. [Creating modules](#apps)
 2. [Creating Models for ORM](#models)
+3. [Shell in django](#shell)
 ## Start django project
 To starta  django project is very easy you only need to run this.
 ```
@@ -112,3 +113,10 @@ With this we only need to run a simple these commands which is going to make our
 $ python manage.py makemigrations apps-name
 $ python manage.py migrate
 ```
+<a name="shell" />
+## Shell
+To run an interactive shell in django you only need to run this command.
+```
+$ python manage.py shell
+```
+Here you can test your code and do a lot of things.
