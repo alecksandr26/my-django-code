@@ -25,3 +25,4 @@ from django.shortcuts import render
 # Create your views here.
 
 ```
+After adding the response we should edit the file `app-name/urls.py` where we are going to add a new path of our project.
