@@ -139,3 +139,12 @@ In django has some tools to administrate our project and configurate our project
 ```
 $ python manage.py createsuperuser
 ```
+Creating a super user and adding this code to our `modules-name/admin` we are going to be able to manipulate the database from a web interface created by django.
+```
+from django.contrib import admin
+from .models import Question, Choice
+
+# Register your models here.
+
+admin.site.register(Question, Choice)
+```
