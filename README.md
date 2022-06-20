@@ -93,7 +93,7 @@ class Choices(models.Model):
     choice_text = models.CharField(max_length=200)
     votes = models.IntergerField(default=0)
 ```
-This is not all to load these chagnes and connect this things to our project we need to add this thing inside of our config file where we can find it here, `apps-name/settings.py`, inside of this file we just add this string to the list `INSTALLE_APPS`.
+This is not all to load these chagnes and connect this things to our project we need to add this thing inside of our config file where we can find it here, `apps-name/settings.py`, inside of this file we just add this string to the list `INSTALLED_APPS`.
 ```
 # Application definition
 
