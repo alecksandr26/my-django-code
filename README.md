@@ -84,7 +84,7 @@ urlpatterns = [
 <a name="models" />
 
 ## Creating Models
-To create a model is very easy you need to go to the file `app-name/models.py`, here inside in this file we are going to add our models, models are tables where you can define what tables are you going to create and use everything from django.
+To create a model is very easy you need to go to the file `modules-name/models.py`, here inside in this file we are going to add our models, models are tables where you can define the attributes of your tables.
 ```
 from django.db import models
 
