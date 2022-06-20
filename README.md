@@ -2,7 +2,7 @@
 Just my django code
 ##### Table of Contents  
 1. [Creating modules](#apps)
-2. 
+2. [Creating Models for ORM](#models)
 ## Start django project
 To starta  django project is very easy you only need to run this.
 ```
@@ -73,3 +73,6 @@ urlpatterns = [
     path("", views.index, name="index")
 ]
 ```
+<a name="models" />
+## Creating Models
+
