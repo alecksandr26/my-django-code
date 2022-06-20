@@ -98,7 +98,7 @@ This is not all to load these chagnes and connect this things to our project we 
 # Application definition
 
 INSTALLED_APPS = [
-    "polls.apps.PollsConfig",
+    "apps-name.apps.apps-nameConfig", # We add something like this 
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
