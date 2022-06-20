@@ -8,6 +8,7 @@ Just my django code
 2. [Creating modules](#apps)
 3. [Creating Models for ORM](#models)
 4. [Shell in django](#shell)
+5. [Django admin](#admin)
 
 <a name="create" />
 
@@ -130,3 +131,11 @@ To run an interactive shell in django you only need to run this command.
 $ python manage.py shell
 ```
 Here you can interact your code and do a lot of things.
+
+<a name="admin" />
+
+## Django admin
+In django has some tools to administrate our project and configurate our project from any place to be able to do that we need to create a user from the terminal, just run this command and create your user.
+```
+$ python manage.py createuser
+```
