@@ -148,3 +148,4 @@ from .models import Question, Choice
 
 admin.site.register(Question, Choice)
 ```
+Now you can go to the `/admin` and see the interface to administrate the database.
