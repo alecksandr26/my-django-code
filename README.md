@@ -54,7 +54,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('polls/', include('polls.urls')) # With this we can add our module to our project
+    path('', include('polls.urls')) # With this we can add our module to our project
 ]
 ```
 To finish we are going to create a new file inside of our `module` or `app` called `urls.py` where we are going to define again our routes or paths of our app.
