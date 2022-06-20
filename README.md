@@ -113,6 +113,7 @@ With this we only need to run a simple these commands which is going to make our
 $ python manage.py makemigrations apps-name
 $ python manage.py migrate
 ```
+This is the documentation to create models in django [models](https://docs.djangoproject.com/en/4.0/topics/db/models/).
 
 <a name="shell" />
 
