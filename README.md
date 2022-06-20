@@ -74,5 +74,6 @@ urlpatterns = [
 ]
 ```
 <a name="models" />
+
 ## Creating Models
 
