@@ -165,7 +165,19 @@ Now you can go to the `/admin` and see the interface to administrate the databas
 ## Creating views
 Views are just url that we can create to response requests from the users inside of it we can render html, css files to create these web applications, so for example inside of your `modules-name/views.py` we are going to add these views for example this are mine.
 ```
+from django.shortcuts import render
 
+# Create your views here.
+from django.http import HttpResponse
+
+# Here we define the different parts of our project
+def index(request):
+    return HttpResponse('Hello world')
+
+
+# Here we can alos receive arguments throught the urls
+def detail(request, question_id):
+    return HttpResponse(f'This is the question number {question_id}')
 ```
 
 
