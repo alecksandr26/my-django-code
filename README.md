@@ -1,9 +1,16 @@
 # My Django Code
 Just my django code
-##### Table of Contents  
-1. [Creating modules](#apps)
-2. [Creating Models for ORM](#models)
-3. [Shell in django](#shell)
+## Django documentation
+[Documentation](https://docs.djangoproject.com/en/4.0/)
+
+## Table of Contents  
+1. [Staring new project](#create)
+2. [Creating modules](#apps)
+3. [Creating Models for ORM](#models)
+4. [Shell in django](#shell)
+
+<a name="create" />
+
 ## Start django project
 To starta  django project is very easy you only need to run this.
 ```
@@ -13,9 +20,9 @@ To run the project you need to execute this command.
 ```
 $ python app/manage.py runserver
 ```
-## Django documentation
-[Documentation](https://docs.djangoproject.com/en/4.0/)
+
 <a name="apps" />
+
 ## Creating modules or apps
 In Django you can create modules or apps to divide your code in different parts, making your project more scalable and organize so to create a new app or module just run these commands.
 ```
