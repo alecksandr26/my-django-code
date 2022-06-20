@@ -58,3 +58,15 @@ urlpatterns = [
 ]
 ```
 To finish we are going to create a new file inside of our `module` or `app` called `urls.py` where we are going to define again our routes or paths of our app.
+```
+from django.urls import path
+
+# Import our response 
+from . import views
+
+
+urlspatters = [
+    # Here we are adding our function 
+    path("", views.index, name="index")
+]
+```
