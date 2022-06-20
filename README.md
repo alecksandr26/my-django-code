@@ -65,7 +65,7 @@ from django.urls import path
 from . import views
 
 
-urlspatters = [
+urlpatterns = [
     # Here we are adding our function 
     path("", views.index, name="index")
 ]
