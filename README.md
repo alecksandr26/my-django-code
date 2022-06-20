@@ -76,4 +76,4 @@ urlpatterns = [
 <a name="models" />
 
 ## Creating Models
-
+To create a model is very easy you need to go to the file `app-name/models.py`, here inside in this file we are going to add our models.
