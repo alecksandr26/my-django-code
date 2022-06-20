@@ -4,11 +4,20 @@ Just my django code
 [Documentation](https://docs.djangoproject.com/en/4.0/)
 
 ## Table of Contents  
-1. [Staring new project](#create)
-2. [Creating modules](#apps)
-3. [Creating Models for ORM](#models)
-4. [Shell in django](#shell)
-5. [Django admin](#admin)
+1. [Install django](#install)
+2. [Staring new project](#create)
+3. [Creating modules](#apps)
+4. [Creating Models for ORM](#models)
+5. [Shell in django](#shell)
+6. [Django admin](#admin)
+
+<a name="install" />
+
+## Install django
+To Install django you only need to run this command
+```
+$ pip install django
+```
 
 <a name="create" />
 
