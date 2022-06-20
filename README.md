@@ -84,14 +84,14 @@ from django.db import models
 
 # This is how we can create a new table inside of our table
 class Question(models.Model):
-    question_text = models.charField(max_length=200)
+    question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField("date publish")
 
 # This is another table 
 class Choices(models.Model):
-    question = models.ForeignKey(Question, on_delete=model.CASCADE)
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text = models.CharField(max_length=200)
-    votes = models.IntergerField(default=0)
+    votes = models.IntegerField(default=0)
 ```
 This is not all to load these chagnes and connect this things to our project we need to add this thing inside of our config file where we can find it here, `apps-name/settings.py`, inside of this file we just add this string to the list `INSTALLED_APPS`.
 ```
