@@ -18,7 +18,7 @@ In Django you can create modules or apps to divide your code in different parts,
 $ cd apps-name
 $ python manage.py startapp modules-name
 ```
-Inside of this directory there is going to be a file called `views.py` where we are going to use to create our routes.
+Inside of this directory there is going to be a file called `views.py` where we are going to use to create our routes from that view, like this.
 ```
 from django.shortcuts import render
 
