@@ -252,4 +252,40 @@ This is the `ditail.html`.
 <a name="forms" />
 
 ## Forms
-This is the way how we can start creating interfaces that we can use to capture data from the user and start creating an interactive project.
+This is the way how we can start creating interfaces that we can use to capture data from the user and start creating an interactive project, for example I rewrite the `detail.html` file to create a form  so take a look with this thing.
+```
+<!-- <p>Question: {{ question }}</p> -->
+<!-- <p>Question number: {{ number }}</p> -->
+
+<!-- <\!-- Print the choices -\-> -->
+<!-- <ul> -->
+<!--     {% if question.choice_set.all %} -->
+<!--     <p>Question choices: </p> -->
+<!--     {% for choice in question.choice_set.all %} -->
+<!--     <li>{{ choice.choice_text }}</li> -->
+<!--     {% endfor %} -->
+<!--     {% endif %} -->
+<!-- </ul> -->
+    
+<!-- This is the form to vote in some  -->
+<form action="{% url 'vote' question.id %}" method="post">
+    <!-- For security purpuse -->
+    {% crsf_token %}
+    <fieldset>
+        <legend><h1>{{ question }}</h1></legend>
+        <!-- if there is an erro show the error -->
+        {% if error_message %}
+        <p><strong>{{ error_message }}</strong></p>
+        {% endif %}
+
+        <!-- Iterate in all the choices  -->
+        {% for choice in question.choice_set.all &}
+        <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}"/>
+        <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label>
+        <br />
+        {% endfor %}
+    </fieldset>
+    <!-- Send the post  -->
+    <input type="submit" value="votar"/>
+</form>
+```
