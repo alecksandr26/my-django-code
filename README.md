@@ -202,5 +202,27 @@ Now we creating templates basically a template is an html code that we can rende
 <p>No polls available </p>
 {% endif %}
 ```
+To render this code with the variables we need to add a function like this into our `views.py`  and yeah is acutally quite easy.
+```
+# This is a new view or path which we are gonig to render our html file 
+def home(request):
+    list_questions = Question.objects.all()
+    # Here we pass the variables as dict
+    return render(request, 'polls/index.html', {
+        'list_questions' : list_questions
+    })
+```
+And just add that function to our `urls.py` module.
+```
+urlpatterns = [
+    # Here we are adding our paths or routes
+    path("", views.index, name="index"),
+    
+    # This is an example of how we can receive variables throught the urls
+    path("<int:question_id>/", views.detail, name="detail"),
 
+    # Add the home path
+    path('home/', views.home, name='home'),
+]
+```
 
