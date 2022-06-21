@@ -12,6 +12,7 @@ Just my django code
 6. [Django admin](#admin)
 7. [Views](#views)
 8. [Templates in django](#template)
+9. [Error 404](#error4040)
 
 <a name="install" />
 
@@ -226,3 +227,17 @@ urlpatterns = [
 ]
 ```
 
+<a name="error404" />
+
+## Error 404
+Sometimes the users are going to request some data that we don't have and to avoid errors when we were featching that data and get an error from the data base we can use a function to get an 404 error and return that, just like this we can avoid errors inside of our view.
+```
+# Here we can alos receive arguments throught the urls
+def detail(request, question_id):
+    # If the object doens't exist django return 404 for us
+    question = get_object_or_404(pk=question_id)
+    
+    return render(request, 'polls/detail.html', {
+        'question' : question
+    })
+```
