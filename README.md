@@ -141,7 +141,7 @@ To run an interactive shell in django you only need to run this command.
 ```
 $ python manage.py shell
 ```
-Here you can interact your code and do a lot of things, here is the documentation [shell](https://docs.djangoproject.com/en/4.0/ref/django-admin/#shell)
+Here you can interact your code and do a lot of things, here is the documentation [shell](https://docs.djangoproject.com/en/4.0/ref/django-admin/#shell).
 
 <a name="admin" />
 
