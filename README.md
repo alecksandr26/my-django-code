@@ -235,9 +235,15 @@ Sometimes the users are going to request some data that we don't have and to avo
 # Here we can alos receive arguments throught the urls
 def detail(request, question_id):
     # If the object doens't exist django return 404 for us
-    question = get_object_or_404(pk=question_id)
+    question = get_object_or_404(Question, pk=question_id)
     
     return render(request, 'polls/detail.html', {
-        'question' : question
+        'question' : question,
+        'number' : question_id
     })
+```
+This is the `ditail.html`.
+```
+<p>Question: {{ question }}</p>
+<p>Question number: {{ number }}</p>
 ```
