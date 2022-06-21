@@ -1,0 +1,10 @@
+<!-- This is an example jinja2 code  -->
+{% if list_questions %}
+<ul>
+{% for question in list_questions %}
+<li><a href="/polls/{{ question.id }}">{{ question.question_text }}</a></li>
+{% endfor %}
+</ul>
+{% else %}
+<p>No polls available </p>
+{% endif %}
