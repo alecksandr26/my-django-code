@@ -11,6 +11,7 @@ Just my django code
 5. [Shell in django](#shell)
 6. [Django admin](#admin)
 7. [Views](#views)
+8. [Templates](#template)
 
 <a name="install" />
 
@@ -185,4 +186,8 @@ def detail(request, question_id):
     return HttpResponse(f'This is the question {question_id} : "{Question.objects.get(pk=question_id)}"') 
 ```
 
+<a name="template" />
+
+## Templates in django
+Now we creating templates basically a template is an html code that we can render with django to create a frontend of our application.
 
