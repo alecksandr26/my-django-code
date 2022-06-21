@@ -12,7 +12,7 @@ Just my django code
 6. [Django admin](#admin)
 7. [Views](#views)
 8. [Templates in django](#template)
-9. [Error 404](#error4040)
+9. [Error 404](#error404)
 
 <a name="install" />
 
