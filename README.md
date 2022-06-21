@@ -13,6 +13,7 @@ Just my django code
 7. [Views](#views)
 8. [Templates in django](#template)
 9. [Error 404](#error404)
+10. [Forms](#forms)
 
 <a name="install" />
 
@@ -247,3 +248,8 @@ This is the `ditail.html`.
 <p>Question: {{ question }}</p>
 <p>Question number: {{ number }}</p>
 ```
+
+<a name="forms" />
+
+## Forms
+This is the way how we can start creating interface that we can use to capture data from the user and start creating an interactive project.
