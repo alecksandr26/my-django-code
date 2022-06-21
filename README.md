@@ -252,7 +252,7 @@ This is the `ditail.html`.
 <a name="forms" />
 
 ## Forms
-This is the way how we can start creating interfaces that we can use to capture data from the user and start creating an interactive project, for example I rewrite the `detail.html` file to create a form  so take a look with this thing.
+This is the way how we can start creating interfaces that we can use to capture data from the user and start creating an interactive project, for example I rewrite the `detail.html` file to create a form  so take a look with this thing, the important thing here is the tag `crsf_token` this is a tag which help us to avoid cross side scripting and other vulneravilitys to our forms.
 ```
 <!-- <p>Question: {{ question }}</p> -->
 <!-- <p>Question number: {{ number }}</p> -->
