@@ -189,7 +189,7 @@ def detail(request, question_id):
 <a name="template" />
 
 ## Templates in django
-Now we creating templates basically a template is an html code that we can render with django to create a frontend of our application, this is so easy, so pay atention, inside of our `module` directory we are going to create a new directory called `templates`, inside of here we are going to create a new directoy with the name of our `module`, so basically at the end we are going to finish with something like this, `modules-name/templates/modules-name`, after that we can create html files, for example we can create the `index.html`.
+Now we creating templates basically a template is an html code that we can render with django to create a frontend of our application, this is so easy, so pay atention, inside of our `module` directory we are going to create a new directory called `templates`, inside of here we are going to create a new directoy with the name of our `module`, so basically at the end we are going to finish with something like this, `modules-name/templates/modules-name`, after that we can create html files, for example we can create the `index.html`, this html files are going to be rendered by `jinja2`, so we can program logic inside of them.
 ```
 ```
 
