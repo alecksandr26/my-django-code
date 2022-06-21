@@ -254,20 +254,6 @@ This is the `ditail.html`.
 ## Forms
 This is the way how we can start creating interfaces that we can use to capture data from the user and start creating an interactive project, for example I rewrite the `detail.html` file to create a form  so take a look with this thing, the important thing here is the tag `csrf_token` this is a tag which help us to avoid cross side scripting and other vulneravilitys to our forms.
 ```
-<!-- <p>Question: {{ question }}</p> -->
-<!-- <p>Question number: {{ number }}</p> -->
-
-<!-- <\!-- Print the choices -\-> -->
-<!-- <ul> -->
-<!--     {% if question.choice_set.all %} -->
-<!--     <p>Question choices: </p> -->
-<!--     {% for choice in question.choice_set.all %} -->
-<!--     <li>{{ choice.choice_text }}</li> -->
-<!--     {% endfor %} -->
-<!--     {% endif %} -->
-<!-- </ul> -->
-    
-<!-- This is the form to vote in some  -->
 <form action="{% url 'vote' question.id %}" method="post">
     <!-- For security purpuse -->
     {% csrf_token %}
@@ -278,14 +264,41 @@ This is the way how we can start creating interfaces that we can use to capture 
         <p><strong>{{ error_message }}</strong></p>
         {% endif %}
 
+
+
         <!-- Iterate in all the choices  -->
-        {% for choice in question.choice_set.all &}
+        {% for choice in question.choice_set.all %}
         <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}"/>
         <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label>
         <br />
+        <!-- Print the number of votes -->
+        <p>Votes: {{ choice.votes }}</p>
+        <br />
+
         {% endfor %}
     </fieldset>
     <!-- Send the post  -->
     <input type="submit" value="votar"/>
 </form>
 ```
+If you read this `html` code basically we are doing a `post` request to the url `question_id/vote` so in this example I'm going to create another view which will contain that route or path, basically this is the view, inside of this function as you can see we can use the received objected called `request` we can use this object to get the data from the `post` and deal with them to do a query to our database.
+```
+# Receive only posts
+def vote(request, question_id):
+    question = get_object_or_404(Question, pk=question_id)
+    try:
+        # With request.POST we can get the data from the from the post 
+        selected_choice = question.choice_set.get(pk=request.POST["choice"])
+    except (KeyError, Choice.DoesNotExist):
+        return render(request, "polls/detail.html", {
+            'question' : question,
+            'error_message' : "You don't selected a correct answer"
+        })
+    else:
+        # If everything is okay increase the value and redirect again to detail
+        selected_choice.votes += 1;
+        selected_choice.save()
+
+        return HttpResponseRedirect(reverse("detail", args=(question_id, )))
+```
+As you can see we can use `HttpResponseRedirect` and `reverse` to redirect the user to another view very simple right.
