@@ -11,7 +11,7 @@ Just my django code
 5. [Shell in django](#shell)
 6. [Django admin](#admin)
 7. [Views](#views)
-8. [Templates](#template)
+8. [Templates in django](#template)
 
 <a name="install" />
 
