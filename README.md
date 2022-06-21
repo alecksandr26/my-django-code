@@ -252,4 +252,4 @@ This is the `ditail.html`.
 <a name="forms" />
 
 ## Forms
-This is the way how we can start creating interface that we can use to capture data from the user and start creating an interactive project.
+This is the way how we can start creating interfaces that we can use to capture data from the user and start creating an interactive project.
