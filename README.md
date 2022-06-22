@@ -369,6 +369,12 @@ class QuestionModelTests(TestCase):
 ```
 Inside of this testacase we can test `models` and `views` to check if they works, so for example to create a new test we only need to create a function inside of this class which must to starts with `test_` and after that you can put any name, then these are my tests.
 ```
+from django.test import TestCase
+from django.utils import timezone
+from django.urls.base import reverse
+import datetime
+from .models import Question
+
 class QuestionModelTests(TestCase):
     def test_was_published_recetly_with_future_questions(self):
         """Test the Questions model"""
@@ -399,6 +405,12 @@ $ python manage.py test modules-name
 ```
 Now lets create another testcase where we test one of our `views`.
 ```
+from django.test import TestCase
+from django.utils import timezone
+from django.urls.base import reverse
+import datetime
+from .models import Question
+
 class HomeViewTests(TestCase):
     def test_no_questions(self):
         """if no questions exist, an appropiet message is displayed"""
