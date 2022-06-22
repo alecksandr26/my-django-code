@@ -15,6 +15,7 @@ Just my django code
 9. [Error 404](#error404)
 10. [Forms](#forms)
 11. [Class Based Views](#classviews)
+12. [Testing](#test)
 
 <a name="install" />
 
@@ -355,4 +356,35 @@ So yeah as you can see with a few lines of code we can do the same thing, but th
 <p><strong>No questions available...</strong></p>
 {% endif %}
 ```
+
+<a name="test" />
+
+## Testing
+Its important to test our code all the time, every module or functionality that we created inside of our code must be tested, so inside of django we have a complete module for testing, so lets create a file called `test.py` inside of the module and inside of them put all this code.
+```
+from django.test import TestCase
+
+class QuestionModelTests(TestCase):
+    pass
+```
+Inside of this testacase we can test `models` and `views` to check if they works, so for example to create a new test we only need to create a function inside of this class which must to starts with `test_` and after that you can put any name, then this is my test.
+```
+from django.test import TestCase
+from django.utils import timezone
+import datetime
+
+class QuestionModelTests(TestCase):
+    def test_was_published_recetly_with_future_questions(self):
+        """Test the Questions model"""
+        time = timezone.now() + datetime.timedelta(days=30)
+        future_question = Question(question_text="Quien es el mejor course director", pub_date=time)
+        
+        # Do a simple assert and check if this is an error
+        self.assertIs(future_question.was_published_recently(), False)
+```
+To run the tests is very easy just put the command test and the name of the module.
+```
+$ python manage.py test modules-name
+```
+
 
