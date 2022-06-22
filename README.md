@@ -354,6 +354,5 @@ So yeah as you can see with a few lines of code we can do the same thing, but th
 {% else %}
 <p><strong>No questions available...</strong></p>
 {% endif %}
-
 ```
 
