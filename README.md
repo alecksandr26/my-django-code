@@ -372,6 +372,7 @@ Inside of this testacase we can test `models` and `views` to check if they works
 from django.test import TestCase
 from django.utils import timezone
 import datetime
+from .models import Question
 
 class QuestionModelTests(TestCase):
     def test_was_published_recetly_with_future_questions(self):
@@ -380,7 +381,7 @@ class QuestionModelTests(TestCase):
         future_question = Question(question_text="Quien es el mejor course director", pub_date=time)
         
         # Do a simple assert and check if this is an error
-        self.assertIs(future_question.was_published_recently(), False)
+        self.assertIs(future_question. was_recent(), False)
 ```
 To run the tests is very easy just put the command test and the name of the module.
 ```
