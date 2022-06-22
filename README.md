@@ -14,6 +14,7 @@ Just my django code
 8. [Templates in django](#template)
 9. [Error 404](#error404)
 10. [Forms](#forms)
+11. [Class Based Views](#classviews)
 
 <a name="install" />
 
@@ -302,3 +303,9 @@ def vote(request, question_id):
         return HttpResponseRedirect(reverse("detail", args=(question_id, )))
 ```
 As you can see we can use `HttpResponseRedirect` and `reverse` to redirect the user to another view very simple right.
+
+<a name="classviews" />
+
+## Class Based Views
+Basically the class based views is the way how we can create views by creating and using classes in python `OOP` in another words there is a documentation of django where whe can find some of the this classes already created by django we only need to inherit them and work with them, this is the documentation [documentation](http://ccbv.co.uk/).
+
