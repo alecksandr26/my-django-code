@@ -326,6 +326,21 @@ With that simple code I'm replacing that function to a simple object the last th
 ```
 And just like that this thing works, but now what happens in those `views` where I do query requests, well in those cases we need to `inherit` other `Views` from the `generic.py`, so basically lets see for example of the class view of my function `home`, you need to declare specifyc this attributes and functions otherwise your are going to get an error.
 ```
+# This is a new view or path which we are gonig to render our html file 
+# def home(request):
+#     list_questions = Question.objects.all()
+    
+#     # Here we pass the variables as dict
+#     return render(request, 'polls/home.html', {
+#         'list_questions' : list_questions
+#     })
 
+class HomeView(generic.ListView):
+    contex_object_name  = "list_questions"
+    template_name = 'polls/home.html'
+    
+    def get_queryset(self):
+        """Return all the objects"""
+        return Question.objects.all()
 ```
 
