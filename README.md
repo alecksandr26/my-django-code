@@ -335,12 +335,25 @@ And just like that this thing works, but now what happens in those `views` where
 #         'list_questions' : list_questions
 #     })
 
+
 class HomeView(generic.ListView):
-    contex_object_name  = "list_questions"
+    model = Question
     template_name = 'polls/home.html'
-    
-    def get_queryset(self):
-        """Return all the objects"""
-        return Question.objects.all()
+```
+So yeah as you can see with a few lines of code we can do the same thing, but this is not all we need to modify our `template` that we were rendering because the in the contex of this view that is going to use will contain `object_list` instead of `list_questions`.
+```
+<!-- This is an example jinja2 code  -->
+<h1>Questions: </h1>
+{% if object_list %}
+<ul>
+    {% for question in object_list %}
+    <!-- To avoid hard coding we can use the url function of jinja2 -->
+    <li><a href="{% url 'detail' question.id %}">{{ question.question_text }}</a></li>
+    {% endfor %}
+</ul>
+{% else %}
+<p><strong>No questions available...</strong></p>
+{% endif %}
+
 ```
 
