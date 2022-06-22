@@ -367,13 +367,8 @@ from django.test import TestCase
 class QuestionModelTests(TestCase):
     pass
 ```
-Inside of this testacase we can test `models` and `views` to check if they works, so for example to create a new test we only need to create a function inside of this class which must to starts with `test_` and after that you can put any name, then this is my test.
+Inside of this testacase we can test `models` and `views` to check if they works, so for example to create a new test we only need to create a function inside of this class which must to starts with `test_` and after that you can put any name, then these are my tests.
 ```
-from django.test import TestCase
-from django.utils import timezone
-import datetime
-from .models import Question
-
 class QuestionModelTests(TestCase):
     def test_was_published_recetly_with_future_questions(self):
         """Test the Questions model"""
@@ -381,11 +376,37 @@ class QuestionModelTests(TestCase):
         future_question = Question(question_text="Quien es el mejor course director", pub_date=time)
         
         # Do a simple assert and check if this is an error
-        self.assertIs(future_question. was_recent(), False)
+        self.assertIs(future_question.was_recent(), False)
+
+
+    def test_was_now_questions(self):
+        """Test this questions"""
+        time = timezone.now()
+        now_question = Question(question_text = "Is this recent?", pub_date=time)
+        self.assertIs(now_question.was_recent(), True)
+
+
+    def test_wasnt_recent_question(self):
+        """Test old questions"""
+
+        time = timezone.now() - datetime.timedelta(days=30)
+        old_question = Question(question_text = "Is this an old question?", pub_date = time)
+        self.assertIs(old_question.was_recent(), False)
 ```
 To run the tests is very easy just put the command test and the name of the module.
 ```
 $ python manage.py test modules-name
 ```
+Now lets create another testcase where we test one of our `views`.
+```
+class HomeViewTests(TestCase):
+    def test_no_questions(self):
+        """if no questions exist, an appropiet message is displayed"""
+        response = self.client.get(reverse("home"))
+        # Test the response code
+        self.assertEqual(response.status_code, 200)
 
-
+        # Test that we don't have question
+        self.assertQuerysetEqual(response.context['object_list'], [])
+```
+And we can create more and more tests if you want to make sure that your application works.
