@@ -307,5 +307,25 @@ As you can see we can use `HttpResponseRedirect` and `reverse` to redirect the u
 <a name="classviews" />
 
 ## Class Based Views
-Basically the class based views is the way how we can create views by creating and using classes in python `OOP` in another words there is a documentation of django where whe can find some of the this classes already created by django we only need to inherit them and work with them, this is the documentation [documentation](http://ccbv.co.uk/).
+Basically the class based views is the way how we can create views by creating and using classes in python `OOP` in another words there is a documentation of django where whe can find some of the this classes already created by django we only need to inherit them and work with them, this is the documentation [documentation](http://ccbv.co.uk/) and this is an example basically I modigy my `views.py` to replace the functions `detail`, `home` to a only one view.
+```
+from django.views import generic
+
+# Here we define the different parts of our project
+# def index(request):
+#     return render(request, 'polls/index.html')
+
+# This is a class based view
+class IndexView(generic.TemplateView):
+    template_name = 'polls/index.html'
+```
+With that simple code I'm replacing that function to a simple object the last thing to do to create this `class view` we only need to modify our `modules-name/urls.py` and just our class view, like this just execute the method `as_view`.
+```
+    # This is how we can add our class view to the urls list
+    path("", views.IndexView.as_view(), name="index"),
+```
+And just like that this thing works, but now what happens in those `views` where I do query requests, well in those cases we need to `inherit` other `Views` from the `generic.py`, so basically lets see for example of the class view of my function `home`, you need to declare specifyc this attributes and functions otherwise your are going to get an error.
+```
+
+```
 
