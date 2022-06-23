@@ -438,4 +438,22 @@ And we can create more and more tests if you want to make sure that your applica
 <a name="static" />
 
 ## Static in django
-Let's see how we can create the static files in django to add render things inside of our code.
+Let's see how we can create the static files in django to add render things inside of our code, firstly we need to add into our module directoy a new directory called `static` inside of here we can add another direcotry call `polls` to avoid confusion and now yeah here we can add our `.css` files, now to add this css file to one of our projects is quite simple only run this tag and add this thing here.
+```
+{% load static %}
+<link rel="stylesheet" href="{% static 'polls/style.css' %}" />
+
+
+<!-- This is the main page--->
+<h1>Questions?...</h1>
+
+<p>Do you want to vote?: <a href="{% url 'home' %}">Questions</a></p>
+```
+You see simple right?, just run the tag `load static` and with that we are ready to include all the `.css` files that we want, so for example this is my `.css` files I called `style.css`.
+```
+h1 {
+    color: red;
+}
+```
+
+
