@@ -16,6 +16,7 @@ Just my django code
 10. [Forms](#forms)
 11. [Class Based Views](#classviews)
 12. [Testing](#test)
+13. [Static in django](#static)
 
 <a name="install" />
 
@@ -433,3 +434,8 @@ class HomeViewTests(TestCase):
         self.assertNotEqual([], response.context['object_list'])
 ```
 And we can create more and more tests if you want to make sure that your application works.
+
+<a name="static" />
+
+## Static in django
+Let's see how we can create the static files in django to add render things inside of our code.
