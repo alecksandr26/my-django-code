@@ -455,5 +455,5 @@ h1 {
     color: red;
 }
 ```
-
+And if nothing changes just re run the server and you will notice the chagnes.
 
