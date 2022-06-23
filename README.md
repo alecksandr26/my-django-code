@@ -423,12 +423,13 @@ class HomeViewTests(TestCase):
         self.assertQuerysetEqual(response.context['object_list'], [])
 
 
-    def test_question_with_future(self):
+    def test_questions_not_empty(self):
         """Testing question with future"""
-        time = timezone.now() + datetime.timedelta(days = 30)
+        time = timezone.now()
         future_question = Question(question_text = "This is a test question for the future", pub_date = time)
         future_question.save()
+        
         response = self.client.get(reverse('home'))
-        self.assertNotIn(future_question, response.context['object_list'])
+        self.assertNotEqual([], response.context['object_list'])
 ```
 And we can create more and more tests if you want to make sure that your application works.
