@@ -411,6 +411,7 @@ from django.urls.base import reverse
 import datetime
 from .models import Question
 
+
 class HomeViewTests(TestCase):
     def test_no_questions(self):
         """if no questions exist, an appropiet message is displayed"""
@@ -420,5 +421,14 @@ class HomeViewTests(TestCase):
 
         # Test that we don't have question
         self.assertQuerysetEqual(response.context['object_list'], [])
+
+
+    def test_question_with_future(self):
+        """Testing question with future"""
+        time = timezone.now() + datetime.timedelta(days = 30)
+        future_question = Question(question_text = "This is a test question for the future", pub_date = time)
+        future_question.save()
+        response = self.client.get(reverse('home'))
+        self.assertNotIn(future_question, response.context['object_list'])
 ```
 And we can create more and more tests if you want to make sure that your application works.
