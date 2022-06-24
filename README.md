@@ -478,8 +478,26 @@ So lets put this tyle to another `.html` file, for exmaple this.
 <p><strong>No questions available...</strong></p>
 {% endif %}
 ```
-And if nothing changes just re run the server and you will notice the chagne, now lets see how to put images into our project with django.
+And if nothing changes just re run the server and you will notice the chagne, now lets see how to put images into our project with django is very simple and easy you only need to create a folder called iamges inside of your `static` folder and from the `.css` file you are going to include that image just like this.
 ```
+h1 {
+    color: red;
+}
 
+
+li a {
+    color: green;
+}
+
+body {
+    background: white url("images/background.gif");
+}
+```
+If doen't work I recommend to your to put change this setting `settings.py` variable to set the correct static files.
+```
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/4.0/howto/static-files/
+
+STATIC_URL = 'static/polls/'
 ```
 
