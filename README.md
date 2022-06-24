@@ -17,6 +17,7 @@ Just my django code
 11. [Class Based Views](#classviews)
 12. [Testing](#test)
 13. [Static in django](#static)
+14. [Django Administration part 2](#djangoadmin)
 
 <a name="install" />
 
@@ -500,4 +501,9 @@ If doen't work I recommend to your to put change this setting `settings.py` vari
 
 STATIC_URL = 'static/polls/'
 ```
+And just like that you can add static files like images to your porject.
 
+
+<a name="djangoadmin" />
+
+## Django Administration part 2
