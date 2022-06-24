@@ -462,7 +462,7 @@ li a {
 ```
 So lets put this tyle to another `.html` file, for exmaple this.
 ```
-{% load static &}
+{% load static %}
 <link rel="stylesheet" href="{% static 'polls/style.css' %}" />
 
 <!-- This is an example jinja2 code  -->
