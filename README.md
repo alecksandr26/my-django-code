@@ -454,6 +454,32 @@ You see simple right?, just run the tag `load static` and with that we are ready
 h1 {
     color: red;
 }
+
+
+li a {
+    color: green;
+}
 ```
-And if nothing changes just re run the server and you will notice the chagnes.
+So lets put this tyle to another `.html` file, for exmaple this.
+```
+{% load static &}
+<link rel="stylesheet" href="{% static 'polls/style.css' %}" />
+
+<!-- This is an example jinja2 code  -->
+<h1>Questions: </h1>
+{% if object_list %}
+<ul>
+    {% for question in object_list %}
+    <!-- To avoid hard coding we can use the url function of jinja2 -->
+    <li><a href="{% url 'detail' question.id %}">{{ question.question_text }}</a></li>
+    {% endfor %}
+</ul>
+{% else %}
+<p><strong>No questions available...</strong></p>
+{% endif %}
+```
+And if nothing changes just re run the server and you will notice the chagne, now lets see how to put images into our project with django.
+```
+
+```
 
