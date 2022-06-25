@@ -598,6 +598,6 @@ admin.site.register(Choice)
 ```
 Now with the field `search_fields` we can seach by the question name and no by selecting by groups so just take a look. <br />
 ![image](https://user-images.githubusercontent.com/66882463/175752960-ac6acdb4-49fd-4d04-aab8-45eec8f27e34.png)<br />
-We can filter all the questions thats incredible right?.
+We can filter all the questions thats incredible right?, then this is the documentation if you want to search more settings that we can define to our django admin [documentation](https://docs.djangoproject.com/en/4.0/ref/contrib/admin/).
 
 
