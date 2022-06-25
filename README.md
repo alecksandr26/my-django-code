@@ -17,7 +17,7 @@ Just my django code
 11. [Class Based Views](#classviews)
 12. [Testing](#test)
 13. [Static in django](#static)
-14. [Django Administration part 2](#djangoadmin)
+14. [Django Admin part 2](#djangoadmin)
 
 <a name="install" />
 
@@ -506,4 +506,98 @@ And just like that you can add static files like images to your porject.
 
 <a name="djangoadmin" />
 
-## Django Administration part 2
+## Django Admin part 2
+We can add more functionalitys to the interface of django admin to administrate and test better our application creating new elements and filtring in a better way the data from our database so lets see, first the file where we are going to add these functionalitys is the `admin.py` this file will be in your module or app that you were creating, so now inside of this `.py` file we can give to the django different configuratons and functions that we want to apply or have inside of our django administator page.
+```
+from django.contrib import admin
+from .models import Question, Choice
+
+# Register your models here.
+
+class QuestionAdmin(admin.ModelAdmin):
+    fields = ["pub_date", "question_text"]
+
+
+admin.site.register(Question, QuestionAdmin)
+admin.site.register(Choice)
+```
+For example I add a new functionality, now when I want to edit or create a new `Question` basically I'will be able to edit or define the fields in that order, so take a look.<br />
+![image](https://user-images.githubusercontent.com/66882463/175752178-892f0ca2-b478-4e0f-8c57-50e344449ee4.png) <br />
+So now for example imagine that I want to be able to add choices to the questions from the django administartor, this is easy we only need to create a new class just like this.
+```
+from django.contrib import admin
+from .models import Question, Choice
+
+# Register your models here.
+
+class ChoiceInline(admin.StackedInline):
+    model = Choice
+    extra = 3
+
+class QuestionAdmin(admin.ModelAdmin):
+    fields = ["pub_date", "question_text"]
+    inlines = [ChoiceInline]
+
+
+admin.site.register(Question, QuestionAdmin)
+admin.site.register(Choice)
+```
+As you can see is very simple we only need to declare and object with an inheritance of `StackedInline` inside of that class we define the model and the field `extra` refes of the amount that we want of that kind of object or table, and inside of our `ModelAdmin` we can add our choice class int he field of `inlines`, so yeah take look. <br />
+![image](https://user-images.githubusercontent.com/66882463/175752393-2474e40d-cf42-44c3-90b4-8104e10544d3.png) <br />
+Now I can add choices to the questions everything from the interface of django admin, now lets see how we can present better our questions, we can add a field to our `QuestionAdmin` class where we decid how eacho question will be show it, this field is `list_diesplay`.
+```
+class QuestionAdmin(admin.ModelAdmin):
+    fields = ["pub_date", "question_text"]
+    inlines = [ChoiceInline]
+    list_display = ("question_text", "pub_date", "was_recent")
+```
+Now to filter our questions we can add new field where we can put the variables can be filter and depending on type the methods of searching are going to change, so take look.
+```
+from django.contrib import admin
+from .models import Question, Choice
+
+# Register your models here.
+
+class ChoiceInline(admin.StackedInline):
+    model = Choice
+    extra = 3
+
+class QuestionAdmin(admin.ModelAdmin):
+    fields = ["pub_date", "question_text"]
+    inlines = [ChoiceInline]
+    list_display = ("question_text", "pub_date", "was_recent")
+    list_filter = ["pub_date", "question_text"]
+
+
+admin.site.register(Question, QuestionAdmin)
+admin.site.register(Choice)
+```
+Here at the `list_filter` I put the variables that I want to search and this is the result take look. <br />
+![image](https://user-images.githubusercontent.com/66882463/175752840-658d8852-01d5-4c40-ae9a-0f280d76ba8e.png) <br  />
+And what django do with the variable text is agroup the questions with the same `question_text`, so to actually search by the name or `question_text` variable we can add another field take look.
+```
+from django.contrib import admin
+from .models import Question, Choice
+
+# Register your models here.
+
+class ChoiceInline(admin.StackedInline):
+    model = Choice
+    extra = 3
+
+class QuestionAdmin(admin.ModelAdmin):
+    fields = ["pub_date", "question_text"]
+    inlines = [ChoiceInline]
+    list_display = ("question_text", "pub_date", "was_recent")
+    list_filter = ["pub_date"]
+    search_fields = ["question_text"]
+
+
+admin.site.register(Question, QuestionAdmin)
+admin.site.register(Choice)
+```
+Now with the field `search_fields` we can seach by the question name and no by selecting by groups so just take a look. <br />
+![image](https://user-images.githubusercontent.com/66882463/175752960-ac6acdb4-49fd-4d04-aab8-45eec8f27e34.png)<br />
+We can filter all the questions thats incredible right?.
+
+
