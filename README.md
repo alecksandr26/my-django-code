@@ -600,4 +600,27 @@ Now with the field `search_fields` we can seach by the question name and no by s
 ![image](https://user-images.githubusercontent.com/66882463/175752960-ac6acdb4-49fd-4d04-aab8-45eec8f27e34.png)<br />
 We can filter all the questions thats incredible right?, then this is the documentation if you want to search more settings that we can define to our django admin [documentation](https://docs.djangoproject.com/en/4.0/ref/contrib/admin/).
 
+<a name="database" />
+
+## Database
+At end of this little script, to connect to an external databse server is quite simple you only need to edit the variable `DATABASE` in `settings.py` and with that we are going to be able to connect our project to our external server database, so just add something like this.
+```
+# This is en example of how to connect to an external database 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME' : 'personalweb',     # The name of the database
+        'USER' : 'remote',      # The username to log into the database
+        'PASSWORD' : '2346rsdf34t2', # The password of the username
+        'HOST' : '192.168.100.150', # The ip address of the host
+        'PORT' : '3306'    # And the port where myslq is running
+    }
+}
+```
+Then at the end just run this command to connect and let django to configure somethings.
+```
+$ python manage.py migrate
+```
+If you are using `mysql` and you get an erro you need to install the package of `msqlclient` and yeath thats it.
+
 
