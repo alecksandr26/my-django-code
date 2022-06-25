@@ -18,6 +18,7 @@ Just my django code
 12. [Testing](#test)
 13. [Static in django](#static)
 14. [Django Admin part 2](#djangoadmin)
+15. [Database](#database)
 
 <a name="install" />
 
