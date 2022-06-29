@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from polls.urls import APP_NAME
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('polls.urls')) # With this we can add our module to our project
+    path(f'{APP_NAME}/', include('polls.urls')) # With this we can add our module to our project
 ]

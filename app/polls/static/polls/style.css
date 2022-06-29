@@ -1,0 +1,21 @@
+
+body {
+    background: white url("./images/background.gif") no-repeat;
+}
+
+
+h1 {
+    color: red;
+}
+
+input {
+    color: white;
+}
+
+a {
+    color: green;
+}
+
+
+
+

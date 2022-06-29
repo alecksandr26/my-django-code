@@ -1,10 +1,19 @@
-<!-- This is an example jinja2 code  -->
-{% if list_questions %}
-<ul>
-{% for question in list_questions %}
-<li><a href="/polls/{{ question.id }}">{{ question.question_text }}</a></li>
-{% endfor %}
-</ul>
-{% else %}
-<p>No polls available </p>
-{% endif %}
+{% extends "polls/base.html" %}
+
+{% block title %}
+{{ block.super }}
+ Index
+{% endblock %}
+
+
+{% block body %}
+{{ block.super }}
+<!-- This is the main page--->
+<h1>Questions?...</h1>
+
+<p>Do you want to vote?: <a href="{% url 'home' %}">Questions</a></p>
+{% endblock %}
+
+
+
+

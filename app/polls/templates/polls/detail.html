@@ -1,0 +1,37 @@
+
+{% extends 'polls/base.html' %}
+    
+{% block body %}    
+<!-- This is the form to vote in some  -->
+<form action="{% url 'vote' question.id %}" method="post">
+    <!-- For security purpuse -->
+    {% csrf_token %}
+    <fieldset>
+        <legend><h1>{{ question }}</h1></legend>
+        <!-- if there is an erro show the error -->
+        {% if error_message %}
+        <p><strong>{{ error_message }}</strong></p>
+        {% endif %}
+
+        <!-- First check if the list it no empty -->
+        {% if question.choice_set.all %}
+        <!-- Iterate in all the choices  -->
+        {% for choice in question.choice_set.all %}
+        <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}"/>
+        <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label>
+        <br />
+        <!-- Print the number of votes -->
+        <p>Votes: {{ choice.votes }}</p>
+        <br />
+        {% endfor %}
+        {% else %} <!-- Else print there is not choices -->
+
+        <p><strong>There are no choices</strong></p>
+        
+        {% endif %}
+    </fieldset>
+    <!-- Send the post  -->
+    <input type="submit" value="votar"/>
+</form>
+{% endblock %}
+

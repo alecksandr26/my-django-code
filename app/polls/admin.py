@@ -3,6 +3,17 @@ from .models import Question, Choice
 
 # Register your models here.
 
+class ChoiceInline(admin.StackedInline):
+    model = Choice
+    extra = 3
 
-admin.site.register(Question)
+class QuestionAdmin(admin.ModelAdmin):
+    fields = ["pub_date", "question_text"]
+    inlines = [ChoiceInline]
+    list_display = ("question_text", "pub_date", "was_recent")
+    list_filter = ["pub_date"]
+    search_fields = ["question_text"]
+
+
+admin.site.register(Question, QuestionAdmin)
 admin.site.register(Choice)
